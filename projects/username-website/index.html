@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common Ground | Community discussion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Common Ground home"><span class="brand-mark">CG</span><span>common ground</span></a>
+      <div class="workspace-switcher"><span class="avatar avatar-user">AM</span><span><strong>Alex Morgan</strong><small>Community manager</small></span><i data-lucide="chevrons-up-down"></i></div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <p class="nav-label">Workspace</p>
+        <a href="#" class="nav-item"><i data-lucide="layout-dashboard"></i>Overview</a>
+        <a href="#" class="nav-item active"><i data-lucide="message-circle"></i>Discussions<span class="nav-count">12</span></a>
+        <a href="#" class="nav-item"><i data-lucide="users"></i>Members</a>
+        <a href="#" class="nav-item"><i data-lucide="bar-chart-3"></i>Insights</a>
+        <p class="nav-label nav-label-spaced">Manage</p>
+        <a href="#" class="nav-item"><i data-lucide="shield-check"></i>Moderation<span class="nav-count alert">3</span></a>
+        <a href="#" class="nav-item"><i data-lucide="history"></i>Activity log</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="safety-note"><i data-lucide="sparkles"></i><div><strong>Community health</strong><span>Looking good this week</span></div><span class="health-dot"></span></div><a href="#" class="nav-item"><i data-lucide="settings"></i>Settings</a><a href="#" class="nav-item"><i data-lucide="circle-help"></i>Help center</a></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" aria-label="Open navigation"><i data-lucide="menu"></i></button><div class="breadcrumbs"><span>Discussions</span><i data-lucide="chevron-right"></i><strong>Remote work, together</strong></div><div class="top-actions"><button class="icon-button" aria-label="Search"><i data-lucide="search"></i></button><button class="icon-button notification" aria-label="Notifications"><i data-lucide="bell"></i><span></span></button><span class="avatar avatar-user">AM</span></div></header>
+      <div class="page-wrap">
+        <section class="page-heading"><div><div class="eyebrow"><span class="live-dot"></span>Active discussion <span class="eyebrow-separator">·</span> 24 participants</div><h1>Remote work, together</h1><p>What rituals help your distributed team feel connected?</p></div><button class="button button-dark" id="openComposer"><i data-lucide="plus"></i> Add comment</button></section>
+        <section class="discussion-meta"><div class="participant-stack"><span class="avatar avatar-lina">LN</span><span class="avatar avatar-diego">DS</span><span class="avatar avatar-sana">SK</span><span class="avatar avatar-jules">JP</span><span class="avatar avatar-more">+20</span></div><div class="meta-copy"><strong>24 people are part of this conversation</strong><span>Last activity 8 minutes ago</span></div><button class="follow-button"><i data-lucide="bell-plus"></i> Follow</button></section>
+
+        <div class="content-grid"><section class="thread-panel"><div class="thread-toolbar"><div><strong id="commentCount">8 comments</strong><span class="thread-updated"><span class="status-dot"></span> All caught up</span></div><label class="sort-select"><span>Sort by</span><select id="sortSelect"><option value="relevant">Most relevant</option><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="liked">Most liked</option></select></label></div><div id="commentsList" class="comments-list"></div><div id="composer" class="composer hidden"><div class="composer-head"><div class="avatar avatar-user">AM</div><div><strong>Add to the conversation</strong><span>Be thoughtful. Your comment will be checked before posting.</span></div><button class="close-composer" id="closeComposer" aria-label="Close composer"><i data-lucide="x"></i></button></div><textarea id="commentInput" rows="4" placeholder="Share your perspective... Use @ to mention someone"></textarea><div class="composer-tools"><div class="tool-group"><button class="tool-button" title="Add emoji"><i data-lucide="smile-plus"></i></button><button class="tool-button" title="Add link"><i data-lucide="link-2"></i></button><span class="language-chip"><i data-lucide="languages"></i>English</span></div><button class="button button-dark" id="postComment">Post comment <i data-lucide="arrow-up-right"></i></button></div><p id="composerMessage" class="composer-message"></p></div></section>
+
+          <aside class="insights-panel"><div class="insight-card tone-lemon"><div class="insight-label"><i data-lucide="languages"></i>Language mix</div><strong>4 languages</strong><p>Everyone can follow along with one tap.</p><div class="language-bars"><span class="bar-english"></span><span class="bar-spanish"></span><span class="bar-other"></span></div><div class="language-legend"><span><b class="legend-orange"></b>English 56%</span><span><b class="legend-green"></b>Spanish 25%</span><span><b class="legend-blue"></b>Other 19%</span></div></div><div class="insight-card tone-rose"><div class="insight-label"><i data-lucide="shield-check"></i>Safety check</div><strong>Protected space</strong><p>Smart filters are active for every new comment.</p><div class="safety-row"><span><i data-lucide="check"></i>Spam & links</span><span><i data-lucide="check"></i>Profanity</span></div><div class="safety-row"><span><i data-lucide="check"></i>Flood control</span><span><i data-lucide="check"></i>Duplicates</span></div></div><div class="activity-card"><div class="card-title"><strong>Recent activity</strong><a href="#">View log <i data-lucide="arrow-up-right"></i></a></div><div class="activity-item"><span class="activity-icon"><i data-lucide="languages"></i></span><span><strong>Comment translated</strong><small>Spanish → English · just now</small></span></div><div class="activity-item"><span class="activity-icon"><i data-lucide="flag"></i></span><span><strong>Report sent to review</strong><small>Offensive content · 18m ago</small></span></div><div class="activity-item"><span class="activity-icon"><i data-lucide="pencil"></i></span><span><strong>Comment edited</strong><small>By Lina N. · 2h ago</small></span></div></div></aside>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="modal hidden" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle"><div class="modal-card"><button class="close-composer" id="closeReport" aria-label="Close report dialog"><i data-lucide="x"></i></button><div class="insight-label"><i data-lucide="flag"></i>Help keep this space safe</div><h2 id="reportTitle">Report this comment</h2><p>Reports are sent to the moderation queue for review. Dislikes never remove a comment automatically.</p><label class="report-label" for="reportReason">Reason</label><select id="reportReason"><option>Spam</option><option>Harassment</option><option>Offensive content</option><option>Malicious link</option></select><button class="button button-dark" id="submitReport">Send report <i data-lucide="arrow-up-right"></i></button></div></div><div class="toast" id="toast" role="status"><i data-lucide="check-circle-2"></i><span></span></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framehouse / HTML5 Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>body.theater .app-shell{max-width:1700px}body.theater .content{padding-top:35px}body.theater .video-frame{box-shadow:0 24px 80px #000b}.media-error{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#0a1019e8;text-align:center}.media-error strong{font-size:14px}.media-error span{font:10px 'DM Mono';color:#8995a7}.media-error button{margin-top:8px;border:1px solid #c99d5a66;background:transparent;color:#e5b872;font:10px 'DM Mono';padding:9px 12px;cursor:pointer}</style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Framehouse home"><span class="brand-mark">F</span><span>FRAMEHOUSE</span></a>
+      <nav class="main-nav" aria-label="Main navigation"><a class="active" href="#watch">Watch</a><a href="#library">Library</a><a href="#notes">Notes</a></nav>
+      <div class="top-actions"><button class="icon-button" aria-label="Search">⌕</button><button class="profile-button" aria-label="Open profile">AV</button></div>
+    </header>
+
+    <main class="content" id="watch">
+      <section class="watch-header">
+        <div><p class="eyebrow">THE FIELD NOTES / 04</p><h1>Quiet places,<br><em>moving slowly.</em></h1></div>
+        <div class="header-meta"><span class="live-dot"></span><span>Now playing</span><span class="slash">/</span><span id="headerDuration">12:48</span></div>
+      </section>
+
+      <section class="player-layout">
+        <div class="player-column">
+          <div class="video-frame" id="videoFrame">
+            <video id="video" preload="metadata" crossorigin="anonymous"></video>
+            <div class="video-vignette"></div>
+            <div class="resume-toast" id="resumeToast">Resuming from <strong id="resumeTime">0:00</strong><button id="restartButton">Start over</button></div>
+            <div class="loading-state" id="loadingState"><span class="loader"></span><span>Loading film</span></div>
+            <div class="media-error" id="mediaError"><strong>Video could not load</strong><span>Check your connection and try again.</span><button id="retryButton" onclick="location.reload()">Retry video</button></div>
+            <div class="center-play" id="centerPlay"><button class="big-play" id="centerPlayButton" aria-label="Play video">▶</button></div>
+            <div class="player-ui" id="playerUi">
+              <div class="timeline-wrap"><div class="preview-card" id="previewCard"><canvas id="previewCanvas" width="176" height="99"></canvas><span id="previewTime">0:00</span></div><input class="timeline" id="timeline" type="range" min="0" max="100" value="0" step="0.1" aria-label="Video progress"><div class="buffer-bar" id="bufferBar"></div></div>
+              <div class="controls">
+                <div class="control-group"><button class="control-button" id="playButton" aria-label="Play">▶</button><button class="control-button skip" id="backButton" aria-label="Back 10 seconds">↶<span>10</span></button><button class="control-button skip" id="forwardButton" aria-label="Forward 10 seconds">↷<span>10</span></button><button class="control-button" id="muteButton" aria-label="Mute">◖</button><input class="volume" id="volume" type="range" min="0" max="1" value="0.8" step="0.01" aria-label="Volume"><span class="time-readout"><b id="currentTime">0:00</b> <span>/</span> <span id="duration">0:00</span></span></div>
+                <div class="control-group"><button class="quality-button" id="qualityButton">1080p HD</button><button class="quality-button" id="speedButton">1×</button><button class="control-button" id="captionsButton" aria-label="Toggle captions">CC</button><button class="control-button" id="pipButton" aria-label="Picture in Picture">▣</button><button class="control-button" id="theaterButton" aria-label="Theater mode">▭</button><button class="control-button" id="fullscreenButton" aria-label="Fullscreen">⛶</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="video-info"><div><div class="title-row"><h2 id="videoTitle">The light between trees</h2><span class="tag">FILM 04</span></div><p id="videoDescription">A slow walk through the cedar groves of Yakushima, Japan.</p></div><div class="info-stats"><span><small>DIRECTOR</small> N. Okada</span><span><small>YEAR</small> 2024</span></div></div>
+          <div class="progress-row"><div><span class="section-label">YOUR PROGRESS</span><strong id="progressLabel">0% watched</strong></div><div class="progress-track"><span id="watchProgress"></span></div><button class="save-button" id="saveButton">＋ Save to library</button></div>
+        </div>
+
+        <aside class="queue-panel" id="library"><div class="queue-heading"><div><p class="eyebrow">UP NEXT</p><h3>Continue watching</h3></div><span class="queue-count">03 films</span></div><div class="playlist" id="playlist"></div><div class="autoplay-panel" id="autoplayPanel"><div class="countdown-ring"><span id="countdown">8</span></div><div><strong>Up next in <span id="countdownText">8</span>s</strong><p id="nextTitle">Moss / Water / Stone</p></div><button class="cancel-button" id="cancelAutoplay">Cancel</button></div><div class="shortcuts"><div class="section-label">QUICK KEYS</div><div class="shortcut-row"><span><kbd>Space</kbd> Play / pause</span><span><kbd>←</kbd><kbd>→</kbd> Seek</span></div><div class="shortcut-row"><span><kbd>M</kbd> Mute</span><span><kbd>F</kbd> Fullscreen</span></div><div class="shortcut-row"><span><kbd>T</kbd> Theater</span><span><kbd>C</kbd> Captions</span></div></div></aside>
+      </section>
+    </main>
+    <footer class="footer"><span>© 2024 FRAMEHOUSE</span><span>Curated films for slower days</span><span>Player v1.4.2</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
